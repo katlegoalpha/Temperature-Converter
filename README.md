@@ -1,2 +1,2 @@
 # Temperature-Converter
-A JavaScript Temperature converting calculator 
+A Temperature converting calculator 
