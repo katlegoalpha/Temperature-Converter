@@ -17,6 +17,23 @@
       <p>Celsius</p>
     </div>
   </div>
- 
+ <script>
+	var celcTextBox = document.getElememntById('Celsius');
+	var fahrTextBox = document.getElementById('Fahrenheit');
+	
+	function cToF(celsius) 
+    {
+       celcTextBox = celsius;
+       const cToFahr = cTemp * 9 / 5 + 32;
+       fahrTextBox = cToFahr;
+    }
+
+    function fToC(fahrenheit) 
+    {
+       fahrTextBox = fahrenheit;
+       const fToCel = (fTemp - 32) * 5 / 9;
+       celcTextBox = fToCel;
+    }
+  </script>
 </body> 
 </html>
