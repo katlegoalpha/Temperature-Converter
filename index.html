@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html style="color:#e7ed40; background-color:#5F98E1; font-family: 'Architects Daughter', cursive; ">
-<head>
-  <meta charset="UTF-8">
-  <title>Tempertature Converter</title>
-  <!-- google fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
-</head>
-<body>
-  <h1 style="text-align:center; padding-top: 250px;">Temperature Converter</h1>
-	  <!-- Input boxes -->
-  <div style="display:flex; justify-content:center; width:100%; text-align:center; outline: none;">
-    <div>
-      <input type="number" id="Fahrenheit"/>
-      <p>Fahrenheit</p>
-    </div>
-    <p>	&#x1F501;<p>    
-    <div>
-      <input type="number" id="Celsius"/>
-      <p>Celsius</p>
-    </div>
-  </div>
- <script>
-	var celcTextBox = document.getElememntById('Celsius');
-	var fahrTextBox = document.getElementById('Fahrenheit');
+  <head>
+    <title>Temperature Converter</title>
+  </head>
+  <body>
+    <h2 style="text-align:center; padding-top: 250px;">Temperature Converter</h2>
+    <form name="temperature" >
+	<table>
+      <table style="display:flex; justify-content:center; width:100%; text-align:center; ">
+			<tr>
+			  <td><input type="number" name="fahrenheit" onchange="ftoc();"></td>
+			</tr>
+			<tr>
+			  <td>Fahrenheit</td>
+			</tr>
+	  </table>
+	  <table style="display:flex; justify-content:center; width:100%; text-align:center; ">
+			<tr>
+			  <td><input type="number" name="celsius" onchange="ctof();"></td>
+			</tr>
+			<tr>
+			  <td>Celsius</td> <br>
+			</tr>
+      </table>
+	 </table>
+    </form>
 	
-	function cToF(celsius) 
-    {
-       celcTextBox = celsius;
-       const cToFahr = cTemp * 9 / 5 + 32;
-       fahrTextBox = cToFahr;
-    }
+    <script language="JavaScript">
+      function ftoc() {
+        var f = document.temperature.fahrenheit.value;
+        if (isNaN(f)) {
+            document.temperature.celsius.value = '';
+        } else {
+            var c = (5.0 / 9.0) * (f - 32);
+            document.temperature.celsius.value = c.toFixed(2);
+        }
+      }
 
-    function fToC(fahrenheit) 
-    {
-       fahrTextBox = fahrenheit;
-       const fToCel = (fTemp - 32) * 5 / 9;
-       celcTextBox = fToCel;
-    }
-  </script>
-</body> 
+      function ctof() {
+        var c = document.temperature.celsius.value;
+        if (isNaN(c)) {
+            document.temperature.fahrenheit.value = '';
+        } else {
+            var f = ((9.0 / 5.0) * c) + 32;
+            document.temperature.fahrenheit.value = f.toFixed(2);
+        }
+      }
+    </script>
+  </body>
 </html>
